@@ -6,11 +6,11 @@ import heapq
 num_vertices=int(input())
 num_edges=int(input())
 
-adj={ i:[] for i in range(num_vertices) }
+adj={ i+1:[] for i in range(num_vertices) }
 
 for _ in range(num_edges):
     inputLine=input()
-    weight, i, j=int(inputLine[0]),int(inputLine[2]),int(inputLine[4])
+    i, j, weight=int(inputLine[0]),int(inputLine[2]),int(inputLine[4])
     adj[i].append([weight,j])
     adj[j].append([weight,i])
 
@@ -25,7 +25,7 @@ while len(visit)<num_vertices:
 
     total_weight+=cost
     visit.add(i)
-    for neiCost,nei in adj[i]:
+    for neiCost, nei in adj[i]:
         if nei not in visit:
             heapq.heappush(minH,[neiCost,nei])
 
