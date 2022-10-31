@@ -47,9 +47,9 @@ while len(visit)<num_vertices:
 res.sort()
 
 for i, [cost, edge] in enumerate(res):
-    outfile.write(edge)
+    outfile.write(edge+"\n")
     
-outfile.write("Total Weight = {:0.2f}".format(round(total_weight, 2)))
+outfile.write("Total Weight = {:0.2f}".format(round(total_weight, 2))+"\n")
 
 infile.close()
 outfile.close()
