@@ -18,20 +18,26 @@ total_weight=0
 visit=set()
 minH=[[0,1]]
 
+res=[]
+
 while len(visit)<num_vertices:
-    cost, i=heapq.heappop(minH)
+    cost, i, j, lineNumber=heapq.heappop(minH)
     if i in visit:
         continue
 
     total_weight+=cost
     print("i:",i)
+    print("j:",j)
+    
     print("adj[i]:",adj[i])
     print()
     
+    res.append(str(lineNumber)+": ("+str(i)+", "+str(j)+"{:0.1f}".format(round(cost,1)))
+
     visit.add(i)
-    for neiCost, nei, lineNumber in adj[i]:
+    for neiCost, nei, line in adj[i]:
         if nei not in visit:
-            heapq.heappush(minH,[neiCost, nei])
+            heapq.heappush(minH,[neiCost, nei, i, line])
 
 print()
 print("visit:",visit)
@@ -41,4 +47,7 @@ print()
 print("adj:",adj)
 print()
 
+for i, edge in enumerate(res):
+    print(edge)
+    
 print("Total Weight = {:0.2f}".format(round(total_weight, 2)))
