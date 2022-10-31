@@ -8,7 +8,7 @@ num_edges=int(input())
 
 adj={ i:[] for i in range(1, num_vertices+1) }
 
-for lineNumber in range(1, num_edges):
+for lineNumber in range(1, num_edges+1):
     inputLine=input()
     i, j, weight=int(inputLine[0]), int(inputLine[2]), int(inputLine[4])
     adj[i].append([weight,j,lineNumber])
@@ -25,7 +25,8 @@ while len(visit)<num_vertices:
 
     total_weight+=cost
     print("i:",i)
-    print("adj[i]",adj[i])
+    print("adj[i]:",adj[i])
+    print()
     
     visit.add(i)
     for neiCost, nei, lineNumber in adj[i]:
