@@ -26,27 +26,27 @@ minH=[[0, 1, None, None]]
 res=[]
 
 while len(visit)<num_vertices:
-    cost, i, j, label=heapq.heappop(minH)
+    weight, i, j, label=heapq.heappop(minH)
 
     if i in visit:
         continue
 
-    total_weight+=cost
+    total_weight+=weight
     
     if label:
-        res.append([cost, 
+        res.append([weight, 
             "{:>4}".format(str(label))+": ("+str(min(i, j))+", "+
-            str(max(i, j))+") "+"{:0.1f}".format(round(cost,1))])
+            str(max(i, j))+") "+"{:0.1f}".format(round(weight,1))])
 
     visit.add(i)
 
-    for neiCost, nei, line in adj[i]:
-        if nei not in visit:
-            heapq.heappush(minH,[neiCost, nei, i, line])
+    for neighborweight, neighbor, line in adj[i]:
+        if neighbor not in visit:
+            heapq.heappush(minH,[neighborweight, neighbor, i, line])
 
 res.sort()
 
-for i, [cost, edge] in enumerate(res):
+for i, [weight, edge] in enumerate(res):
     outfile.write(edge+"\n")
     
 outfile.write("Total Weight = {:0.2f}".format(round(total_weight, 2))+"\n")
