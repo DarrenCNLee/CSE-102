@@ -16,7 +16,7 @@ for lineNumber in range(1, num_edges+1):
 
 total_weight=0
 visit=set()
-minH=[[0,1, None, None]]
+minH=[[0, 1, None, None]]
 
 res=[]
 
@@ -32,8 +32,9 @@ while len(visit)<num_vertices:
     print("adj[i]:",adj[i])
     print()
     
-    res.append([cost, 
-        str(lineNumber)+": ("+str(i)+", "+str(j)+") "+"{:0.1f}".format(round(cost,1))])
+    if lineNumber:
+        res.append([cost, 
+            str(lineNumber)+": ("+str(i)+", "+str(j)+") "+"{:0.1f}".format(round(cost,1))])
 
     visit.add(i)
     for neiCost, nei, line in adj[i]:
