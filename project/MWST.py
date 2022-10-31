@@ -21,7 +21,7 @@ minH=[[0, 1, None, None]]
 res=[]
 
 while len(visit)<num_vertices:
-    cost, i, j, lineNumber=heapq.heappop(minH)
+    cost, i, j, label=heapq.heappop(minH)
     if i in visit:
         continue
 
@@ -32,9 +32,10 @@ while len(visit)<num_vertices:
     print("adj[i]:",adj[i])
     print()
     
-    if lineNumber:
+    if label:
         res.append([cost, 
-            str(lineNumber)+": ("+str(i)+", "+str(j)+") "+"{:0.1f}".format(round(cost,1))])
+            "{:>4}".format(str(label))+": ("+str(min(i, j))+", "+
+            str(max(i, j))+") "+"{:0.1f}".format(round(cost,1))])
 
     visit.add(i)
     for neiCost, nei, line in adj[i]:
