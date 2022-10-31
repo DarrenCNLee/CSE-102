@@ -22,15 +22,11 @@ res=[]
 
 while len(visit)<num_vertices:
     cost, i, j, label=heapq.heappop(minH)
+
     if i in visit:
         continue
 
     total_weight+=cost
-    print("i:",i)
-    print("j:",j)
-    
-    print("adj[i]:",adj[i])
-    print()
     
     if label:
         res.append([cost, 
@@ -38,17 +34,10 @@ while len(visit)<num_vertices:
             str(max(i, j))+") "+"{:0.1f}".format(round(cost,1))])
 
     visit.add(i)
+
     for neiCost, nei, line in adj[i]:
         if nei not in visit:
             heapq.heappush(minH,[neiCost, nei, i, line])
-
-print()
-print("visit:",visit)
-print()
-print("minH:",minH)
-print()
-print("adj:",adj)
-print()
 
 res.sort()
 
