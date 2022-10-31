@@ -9,8 +9,8 @@ num_edges=int(input())
 adj={ i:[] for i in range(1, num_vertices+1) }
 
 for lineNumber in range(1, num_edges+1):
-    inputLine=input()
-    i, j, weight=int(inputLine[0]), int(inputLine[2]), int(inputLine[4])
+    inputLine=input().split()
+    i, j, weight=int(inputLine[0]), int(inputLine[1]), int(inputLine[2])
     adj[i].append([weight,j,lineNumber])
     adj[j].append([weight,i,lineNumber])
 
