@@ -6,7 +6,7 @@ import heapq
 num_vertices=int(input())
 num_edges=int(input())
 
-adj={ i+1:[] for i in range(num_vertices) }
+adj={ i:[] for i in range(1, num_vertices+1) }
 
 for _ in range(num_edges):
     inputLine=input()
