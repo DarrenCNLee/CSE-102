@@ -3,8 +3,8 @@
 
 import heapq
 
-num_vertices=input()
-num_edges=input()
+num_vertices=int(input())
+num_edges=int(input())
 
 adj={ i:[] for i in range(num_vertices) }
 
