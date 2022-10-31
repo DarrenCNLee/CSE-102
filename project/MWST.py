@@ -16,7 +16,7 @@ for _ in range(num_edges):
 
 total_weight=0
 visit=set()
-minH=[[0,0]]
+minH=[[1,0]]
 
 while len(visit)<num_vertices:
     cost,i=heapq.heappop(minH)
