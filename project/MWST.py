@@ -51,7 +51,7 @@ print()
 
 res.sort()
 
-for i, edge in enumerate(res):
+for i, cost, edge in enumerate(res):
     print(edge)
     
 print("Total Weight = {:0.2f}".format(round(total_weight, 2)))
