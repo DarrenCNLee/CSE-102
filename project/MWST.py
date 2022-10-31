@@ -24,7 +24,8 @@ while len(visit)<num_vertices:
         continue
 
     total_weight+=cost
-    print(adj[i])
+    print("i:",i)
+    print("adj[i]",adj[i])
     
     visit.add(i)
     for neiCost, nei, lineNumber in adj[i]:
