@@ -29,4 +29,8 @@ while len(visit)<num_vertices:
         if nei not in visit:
             heapq.heappush(minH,[neiCost,nei])
 
-print("Total Weight ={:0.2f}".format(round(total_weight, 2)))
+print("visit:",visit)
+print("minH:",minH)
+print("adj:",adj)
+
+print("Total Weight = {:0.2f}".format(round(total_weight, 2)))
