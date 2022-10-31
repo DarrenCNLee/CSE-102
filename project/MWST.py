@@ -11,8 +11,8 @@ adj={ i:[] for i in range(num_vertices) }
 for _ in range(num_edges):
     inputLine=input()
     weight, i, j=int(inputLine[0]),int(inputLine[2]),int(inputLine[4])
-    adj[i].append(weight,j)
-    adj[j].append(weight,i)
+    adj[i].append([weight,j])
+    adj[j].append([weight,i])
 
 total_weight=0
 visit=set()
