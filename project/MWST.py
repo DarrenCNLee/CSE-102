@@ -2,14 +2,19 @@
 # your python code starts here
 
 import heapq
+import sys
 
-num_vertices=int(input())
-num_edges=int(input())
+infile=open(sys.argv[1], "r")
+outfile=open(sys.argv[2], "w")
+
+
+num_vertices=int(infile.readline())
+num_edges=int(infile.readline())
 
 adj={ i:[] for i in range(1, num_vertices+1) }
 
 for lineNumber in range(1, num_edges+1):
-    inputLine=input().split()
+    inputLine=infile.readline().split()
     i, j, weight=int(inputLine[0]), int(inputLine[1]), int(inputLine[2])
     adj[i].append([weight,j,lineNumber])
     adj[j].append([weight,i,lineNumber])
@@ -42,6 +47,9 @@ while len(visit)<num_vertices:
 res.sort()
 
 for i, [cost, edge] in enumerate(res):
-    print(edge)
+    outfile.write(edge)
     
-print("Total Weight = {:0.2f}".format(round(total_weight, 2)))
+outfile.write("Total Weight = {:0.2f}".format(round(total_weight, 2)))
+
+infile.close()
+outfile.close()
