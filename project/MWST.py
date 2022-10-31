@@ -16,7 +16,7 @@ for lineNumber in range(1, num_edges+1):
 
 total_weight=0
 visit=set()
-minH=[[0,1]]
+minH=[[0,1, None, None]]
 
 res=[]
 
