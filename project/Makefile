@@ -1,2 +1,2 @@
 target:
-	chmod u+x MWST
+	chmod u+x MWST.py
